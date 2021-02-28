@@ -26,8 +26,6 @@ namespace RepositoryPatternWithDapper.Repository
                     db.Open();
                 return db.Query<Product>("select * from Products", CommandType.Text);
             }
-            
-            //User Id = sa; Password = 123;
         }
 
         public bool InsertProduct(Product product)
