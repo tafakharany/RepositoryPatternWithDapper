@@ -1,7 +1,7 @@
 # RepositoryPatternWithDapper
-# - [Dependecies](#)
-- Dapper 
-- System.Data.SqlClient
+# - Dependecies
+- [Dapper](https://dapper-tutorial.net/dapper) 
+- [System.Data.SqlClient](https://www.nuget.org/packages/System.Data.SqlClient)
 
 # what you should do to make this work?
 - first you should have Northwind Database.
