@@ -20,10 +20,14 @@ namespace RepositoryPatternWithDapper.Repository
 
         public IEnumerable<Product> GetProducts()
         {
-            using IDbConnection db = new SqlConnection(AppConnection.ConnectionString);
-            if (db.State == ConnectionState.Closed)
-                db.Open();
-            return db.Query<Product>("select * from Products", CommandType.Text);
+            using (IDbConnection db = new SqlConnection(AppConnection.ConnectionString))
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+                return db.Query<Product>("select * from Products", CommandType.Text);
+            }
+            
+            //User Id = sa; Password = 123;
         }
 
         public bool InsertProduct(Product product)
