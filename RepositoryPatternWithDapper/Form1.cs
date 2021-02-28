@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepositoryPatternWithDapper.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +11,19 @@ using System.Windows.Forms;
 
 namespace RepositoryPatternWithDapper
 {
-    public partial class Form1 : Form
+    public partial class prdFrm : Form
     {
-        public Form1()
+        IProductRepository productRepository;
+        public prdFrm()
         {
             InitializeComponent();
         }
 
+        private void prdFrm_Load(object sender, EventArgs e)
+        {
+            productRepository = new ProductRepository();
+            prdDtGrd.DataSource = productRepository.GetProducts();
+            lblTotalRec.Text = $"Total Records{prdDtGrd.RowCount}";
+        }
     }
 }
